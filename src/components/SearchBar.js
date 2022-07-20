@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 import { Feather } from '@expo/vector-icons'; 
+import { TouchableOpacity } from 'react-native-web';
 
-const SearchBar = () => {
+const SearchBar = ({onChangeText, onEndEditing, value}) => {
   return(
     <View style={styles.container}>
       <Feather name="search" size={25} color="black" />
@@ -11,7 +12,15 @@ const SearchBar = () => {
         autoCorrect={false}
         placeholder="Search"
         style={styles.textInput}
+        value={value}
+        onChangeText={newText => onChangeText(newText)}
+        onEndEditing={() => onEndEditing(value)}
       />
+      <TouchableOpacity
+        onPress={() => onEndEditing(value)}
+      >
+        <Feather name="send" size={25} color="black" />
+      </TouchableOpacity>
     </View>
   )
 }
