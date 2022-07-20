@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import tmdb from '../api/tmdb';
 
 const HomeScreen = () => {
   const [text, setText] = useState('');
+  const [results, setResults] = useState([]);
 
   async function searchTmdb(query) {
     try {
@@ -14,7 +15,7 @@ const HomeScreen = () => {
           include_adult: false,
         }
       })
-      console.log(response);
+      setResults(response.data.results);
     }
     catch (err) {
       console.log(err);
@@ -28,6 +29,15 @@ const HomeScreen = () => {
         onChangeText={(t) => setText(t)}
         onEndEditing={(t) => searchTmdb(t)}
         value={text}
+      />
+      <FlatList 
+        data={results}
+        keyExtractor={item => `${item.id}`}
+        renderItem={({ item }) => {
+          return(
+            <Text>{item.original_title}</Text>
+          )
+        }}
       />
     </View>
   )
