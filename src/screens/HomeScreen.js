@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import tmdb from '../api/tmdb';
@@ -6,6 +6,10 @@ import tmdb from '../api/tmdb';
 const HomeScreen = () => {
   const [text, setText] = useState('');
   const [results, setResults] = useState([]);
+
+  useEffect(() => {  
+    searchTmdb('Fight Club');
+  },[]);
 
   async function searchTmdb(query) {
     try {
