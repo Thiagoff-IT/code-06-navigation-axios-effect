@@ -1,7 +1,6 @@
 import React from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
+import {View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import { Feather } from '@expo/vector-icons'; 
-import { TouchableOpacity } from 'react-native-web';
 
 const SearchBar = ({onChangeText, onEndEditing, value}) => {
   return(

@@ -39,7 +39,10 @@ const HomeScreen = () => {
         keyExtractor={item => `${item.id}`}
         renderItem={({ item }) => {
           return(
-            <Text>{item.original_title}</Text>
+            <View>
+              <Text>{item.original_title}</Text>
+              <Text>{item.original_title}</Text>
+            </View>
           )
         }}
       />
