@@ -28,7 +28,7 @@ const HomeScreen = () => {
   }
 
   return (
-    <View>
+    <>
       <SearchBar 
         onChangeText={(t) => setText(t)}
         onEndEditing={(t) => searchTmdb(t)}
@@ -46,7 +46,7 @@ const HomeScreen = () => {
           )
         }}
       />
-    </View>
+    </>
   )
 }
 
