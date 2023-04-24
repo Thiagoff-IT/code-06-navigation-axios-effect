@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons'; 
 
 const SearchBar = ({onChangeText, onEndEditing, value}) => {
